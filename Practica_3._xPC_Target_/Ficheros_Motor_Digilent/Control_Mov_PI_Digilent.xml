@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+      		<SubSystem>
+		<Name>Control Host</Name>
+		<xPCName>Control_Mov_PI_Digilent/Control Host</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Error File</Name>
+		<xPCName>Control_Mov_PI_Digilent/Error File</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Error Host</Name>
+		<xPCName>Control_Mov_PI_Digilent/Error Host</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>PI Controller</Name>
+		<xPCName>Control_Mov_PI_Digilent/PI Controller</xPCName>
+		
+		
+            <block>
+            <blkName>Derivative
+Gain</blkName>
+            <xpcblkName>PI Controller/Derivative Gain</xpcblkName>
+            <SLblockPath>Control_Mov_PI_Digilent/PI Controller/Derivative Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>D</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Integral
+Gain</blkName>
+            <xpcblkName>PI Controller/Integral Gain</xpcblkName>
+            <SLblockPath>Control_Mov_PI_Digilent/PI Controller/Integral Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Proportional
+Gain</blkName>
+            <xpcblkName>PI Controller/Proportional Gain</xpcblkName>
+            <SLblockPath>Control_Mov_PI_Digilent/PI Controller/Proportional Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Integrator</blkName>
+            <xpcblkName>PI Controller/Integrator</xpcblkName>
+            <SLblockPath>Control_Mov_PI_Digilent/PI Controller/Integrator</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Ideal
+Derivative</sigName>
+              <xpcsigName>PI Controller/Ideal Derivative</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Derivative
+Gain</sigName>
+              <xpcsigName>PI Controller/Derivative Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integral
+Gain</sigName>
+              <xpcsigName>PI Controller/Integral Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Proportional
+Gain</sigName>
+              <xpcsigName>PI Controller/Proportional Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integrator</sigName>
+              <xpcsigName>PI Controller/Integrator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>PI Controller/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent/PI Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Scope </Name>
+		<xPCName>Control_Mov_PI_Digilent/Scope </xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Seguimiento Host</Name>
+		<xPCName>Control_Mov_PI_Digilent/Seguimiento Host</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Seguimiento Target</Name>
+		<xPCName>Control_Mov_PI_Digilent/Seguimiento Target</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Trayectoria Posicion</Name>
+		<xPCName>Control_Mov_PI_Digilent/Trayectoria Posicion</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>FromWs</sigName>
+              <xpcsigName>Trayectoria Posicion/FromWs</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent/Trayectoria Posicion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+      
+            <block>
+            <blkName>PI Controller</blkName>
+            <xpcblkName>PI Controller</xpcblkName>
+            <SLblockPath>Control_Mov_PI_Digilent/PI Controller</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>D</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Constant1</xpcblkName>
+            <SLblockPath>Control_Mov_PI_Digilent/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>PCI 6221 ENC </blkName>
+            <xpcblkName>PCI 6221 ENC </xpcblkName>
+            <SLblockPath>Control_Mov_PI_Digilent/PCI 6221 ENC </SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P10</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>PCI-6221 DA</blkName>
+            <xpcblkName>PCI-6221 DA</xpcblkName>
+            <SLblockPath>Control_Mov_PI_Digilent/PCI-6221 DA</SLblockPath>
+            <isSrc>[0 2 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Constant1</sigName>
+              <xpcsigName>Constant1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Encoder-Grados
+Reductora 1:53</sigName>
+              <xpcsigName>Encoder-Grados Reductora 1:53</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>PCI 6221 ENC </sigName>
+              <xpcsigName>PCI 6221 ENC </xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_Mov_PI_Digilent</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+</Root>
