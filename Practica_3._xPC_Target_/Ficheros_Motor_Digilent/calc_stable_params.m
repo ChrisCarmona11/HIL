@@ -14,56 +14,67 @@ currentTimeCounter = 0;
 %El margen que debe cumplir para decir que es estable 
 referenceGap = currentReferenceValue * 0.05;
 
-cont_flag = 0;
-error_flag = 0;
+inStableZone = 0;
+time_inStableZone = 0;
+errorMeasuredFlag= 0;
 
 %Esta variable me va a decir que ha cambiado la sig_consigna
 lastTimeEnterStableZone = 0; 
 % Mediante esta bandera puedo saber si el analisis ha iniciado para
 % evitares errores al inicio.
 analisysInitiatedFlag = 0;
+
+contadorEscalones = 1;
 for i = 1: length(sig_consigna)
   % Cuando la sig_consigna cambia empieza un ciclo. Se empieza guardando
   % el valor de referencia
   if currentReferenceValue ~= sig_consigna(i) %~= significa not equal en matlab
-
-      % timesToStabilize_vector = [timesToStabilize_vector; currentTimeCounter, sig_posicion(i)];
-
-      currentReferenceValue = sig_consigna(i);
-      referenceGap = abs(currentReferenceValue * 0.05);
-      % Si la ref está alrededor de 0 se toma un margen fijo de ancho 2
-      if (currentReferenceValue > -2) && ( currentReferenceValue < 2)
-          referenceGap = 2;
-          %Estoy hay que mirarlo bien en los apuntes de control 1
+      
+      disp(["Escalon numero",contadorEscalones]);
+      contadorEscalones=contadorEscalones+1;
+     
+      if inStableZone == 1
+        timesToStabilize_vector = [timesToStabilize_vector; time_inStableZone, lastTimeEnterStableZone];
+        inStableZone =0;
+        
       end
-      % Resetear contador de tiempo de establecimiento y flags
-      currentTimeCounter = 0; cont_flag = 0; error_flag = 0;
+   
+      currentReferenceValue = sig_consigna(i);
+      %  if contadorEscalones ==9
+      %   disp("miniscalon")
+      % end
+
+      referenceGap = (abs(currentReferenceValue-sig_posicion(i-1)) * 0.05);
+      if referenceGap<2
+            referenceGap=2;
+      end 
+      %Reiniciar los contadores y flags
+      currentTimeCounter = 0; inStableZone = 0;errorMeasuredFlag=0;
   else
       currentTimeCounter = currentTimeCounter + 1;
       % Para evitar problemas en el arranque
       if (analisysInitiatedFlag == 0) & (sig_posicion(i) ~= 0)
           analisysInitiatedFlag = 1;
-
       end
+
       % Ya arrancado
+
       if analisysInitiatedFlag == 1
-          if (sig_posicion(i) >= currentReferenceValue - referenceGap) & (sig_posicion(i) <= currentReferenceValue + referenceGap)
-              lastTimeEnterStableZone = sig_posicion(i - 1); 
-              % Este delta de posicion se usa para verificar que la señal
-              % en una tolerancia menor al %1 y que por tanto ya no vuelve
-              % a salir de los margenes estabels de +- %5
-   
-              % MinimumPositionChange
-              % MinimumPositionChange = 
-              pos_change = abs(sig_posicion(i) * 0.01); % tolerancia: 1%
-              if (abs(sig_posicion(i) - lastTimeEnterStableZone) <= pos_change) && (cont_flag == 0)
-                  timesToStabilize_vector = [timesToStabilize_vector; currentTimeCounter, sig_posicion(i)];
-                  % Se activa flag para que no guarde t_stable varias veces
-                  cont_flag = 1;
+          %proceso para saber si estoy dentro de la zona estable
+          if (sig_posicion(i) >= currentReferenceValue - referenceGap) & (sig_posicion(i) <= currentReferenceValue + referenceGap) 
+              if inStableZone==0
+                  lastTimeEnterStableZone = sig_posicion(i - 1); 
+                  inStableZone=1;
+                  time_inStableZone = currentTimeCounter;
               end
-              % Para el error en la permanente
-              if (sig_posicion(i) == lastTimeEnterStableZone) & (error_flag == 0)
-                  error_flag = 1;
+          else
+              inStableZone=0;
+          end
+
+          % Para el error en la permanente
+          if (inStableZone) & (abs(sig_posicion(i)-sig_posicion(i-10))<=1)
+              if errorMeasuredFlag == 0
+                  errorMeasuredFlag = 1;
                   error_gap = abs(sig_posicion(i) - currentReferenceValue);
                   stable_errors = [stable_errors; currentTimeCounter, error_gap];
               end
@@ -71,5 +82,11 @@ for i = 1: length(sig_consigna)
       end
   end
 end
+%Como dependo de que haya un salto para guardar el ultimo paso no vera un
+%salto posteior asi que se mete asi a mano.
+if inStableZone == 1
+    timesToStabilize_vector = [timesToStabilize_vector; time_inStableZone, lastTimeEnterStableZone];
+end
+
 stable_params = [timesToStabilize_vector, stable_errors];
 end
