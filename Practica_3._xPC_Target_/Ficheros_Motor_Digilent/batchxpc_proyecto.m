@@ -36,8 +36,23 @@ for k = 1 : 1 : 3
       t    = tg.TimeLog;                       % Upload time vector
       consigna = s;
       posicion = y;
- 
+      
+      %% Calcular SumERR
       SumErr=sum(abs(error_vec));
+      %% Calcular rebose
+      % Lo que se calcula es el rebose máximo de todo el proceso.
+      rebose_val = calc_rebose(posicion,consigna);
+
+      %% Calcular tiempo de establecimiento y Error en permanente
+      % La misma función devuelve los valores de tiempo y los errores. Con
+      % estos se puede el máxmimo, el mínimo, la media...
+      stable_params = calc_stable_params(posicion, consigna);
+
+      time_step = 0.01;
+      max_stable_time = time_step * max(stable_params(:, 1));
+      max_stable_error = max(stable_params(:, 4));
+
+      %% Guardar y plotear
       save (['Control PI_',num2str(P),'_',num2str(I),'.mat'],'consigna','posicion','error_vec','P','I','SumErr');
       plot(t, s,'b',t, y,'r');                  % Plot data for current run
       set(gca, 'XLim', [t(1), t(end)], 'YLim', [-50, 400]);
